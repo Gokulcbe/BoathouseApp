@@ -6,7 +6,7 @@ const UserLayout = ({children}) => {
         // <div className="image-bg" style={{width: "100%", marginTop: "0%"}}>
         <div>
             <video className="video-bg" autoPlay loop muted>
-            <source src="/src/assets/Videos/home.mp4" type="video/mp4" />
+            <source src="/node_modules/home.mp4" type="video/mp4" />
         </video>
             <header>
                 <Navbar/>
