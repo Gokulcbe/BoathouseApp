@@ -38,7 +38,7 @@ const BookingDetails = {
 
 const Booking = () => {
     return (
-        <div>
+        <div style={{marginBottom: '10%'}}>
             <h1 style={{textAlign: 'center'}}>Booking</h1>
             <div className='booking-grid'>
                 <Grid className="grid-container" container rowSpacing={1} justifyContent="center">

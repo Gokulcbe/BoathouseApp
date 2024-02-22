@@ -11,8 +11,8 @@ const Home = () => {
         <div>
 
       
-        <div className="home-container">
-            <video className="video-bg" autoPlay loop muted>
+        <div className="home-container" >
+            <video className="video-bg" autoPlay loop muted >
             <source src="/src/assets/Videos/home.mp4" type="video/mp4" />
         </video>
             <h1>Welcome to Boat House Booking</h1>
@@ -48,7 +48,7 @@ const Home = () => {
             </Grid>
             </div>
             <div style={{marginTop: '2%'}}>
-            <Button startIcon={<DirectionsBoatIcon/>} variant="contained" color="success" size="large" onClick={()=>navigate("/user/booking")}>
+            <Button startIcon={<DirectionsBoatIcon/>} variant="contained" color="success" size="large"   onClick={()=>navigate("/user/booking")}>
                 Book BoatHouse now!
                 </Button>
             </div>

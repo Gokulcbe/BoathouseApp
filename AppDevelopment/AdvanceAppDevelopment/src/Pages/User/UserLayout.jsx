@@ -13,9 +13,9 @@ const UserLayout = ({children}) => {
             <main>
                 {children}
             </main>
-            <footer style={{width: '100%', marginBottom: 0}}>
+            <footer style={{width: '100%'}}>
                 {/* <h1>Footer</h1> */}
-                <Footer/>
+                {/* <Footer/> */}
             </footer>
         </div>
     )

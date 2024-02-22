@@ -5,7 +5,7 @@ const LazyLogin = lazy(()=> import("./Pages/auth/Login"))
 const LazySignup = lazy(()=> import("./Pages/auth/Signup"))
 const LazyHome = lazy(() => import("./Pages/User/Home"))
 const LazyBooking = lazy(() => import("./Pages/User/Booking"))
-// const LazyProfile = lazy(() => import("./Pages"))
+const LazyProfile = lazy(() => import("./Pages/User/Profile"))
 import UserLayout from './Pages/User/UserLayout'
 const UserRoutes = () => {
   return(
@@ -13,6 +13,7 @@ const UserRoutes = () => {
       <Routes>
         <Route path="/home" element={<LazyLayout component={LazyHome}/>}/>
         <Route path="/booking" element={<LazyLayout component={LazyBooking}/>}/>
+        <Route path="/profile" element={<LazyLayout component={LazyProfile}/>}/>
       </Routes>
     </UserLayout>
   )
