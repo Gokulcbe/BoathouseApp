@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 
 const LazyLayout = ({ component:Component, ...rest}) => {
     return (
@@ -9,8 +9,8 @@ const LazyLayout = ({ component:Component, ...rest}) => {
     )
 }
 
-LazyLayout.PropTypes = {
-    component: PropTypes.elementType.isRequired
+LazyLayout.propTypes = {
+    component: propTypes.elementType.isRequired
 }
 
 export default LazyLayout

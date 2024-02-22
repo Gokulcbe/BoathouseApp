@@ -1,21 +1,21 @@
 import propTypes from 'prop-types'
 import Navbar from '../../Components/Navbar'
 import '../../assets/css/home.css'
+// import Footer from '../../Components/Footer'
 const UserLayout = ({children}) => {
     return (
         // <div className="image-bg" style={{width: "100%", marginTop: "0%"}}>
         <div>
-            <video className="video-bg" autoPlay loop muted>
-            <source src="/node_modules/home.mp4" type="video/mp4" />
-        </video>
+            
             <header>
                 <Navbar/>
             </header>
             <main>
                 {children}
             </main>
-            <footer>
+            <footer style={{width: '100%', marginBottom: 0}}>
                 {/* <h1>Footer</h1> */}
+                {/* <Footer/> */}
             </footer>
         </div>
     )
