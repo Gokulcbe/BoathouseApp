@@ -5,6 +5,7 @@ const LazyLogin = lazy(()=> import("./Pages/auth/Login"))
 const LazySignup = lazy(()=> import("./Pages/auth/Signup"))
 const LazyHome = lazy(() => import("./Pages/User/Home"))
 const LazyBooking = lazy(() => import("./Pages/User/Booking"))
+// const LazyProfile = lazy(() => import("./Pages"))
 import UserLayout from './Pages/User/UserLayout'
 const UserRoutes = () => {
   return(

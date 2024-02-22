@@ -1,7 +1,7 @@
 import propTypes from 'prop-types'
 import Navbar from '../../Components/Navbar'
 import '../../assets/css/home.css'
-// import Footer from '../../Components/Footer'
+import Footer from '../../Components/Footer'
 const UserLayout = ({children}) => {
     return (
         // <div className="image-bg" style={{width: "100%", marginTop: "0%"}}>
@@ -15,7 +15,7 @@ const UserLayout = ({children}) => {
             </main>
             <footer style={{width: '100%', marginBottom: 0}}>
                 {/* <h1>Footer</h1> */}
-                {/* <Footer/> */}
+                <Footer/>
             </footer>
         </div>
     )

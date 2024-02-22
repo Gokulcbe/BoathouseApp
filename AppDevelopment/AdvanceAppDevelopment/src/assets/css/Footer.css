@@ -1,0 +1,15 @@
+.container-footer {
+    background-color: #333; /* Choose your desired background color */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  /* Additional styles for better aesthetics (optional) */
+  .container-footer p {
+    margin: 0; /* Remove default margin for the paragraph */
+    font-size: 14px;
+  }

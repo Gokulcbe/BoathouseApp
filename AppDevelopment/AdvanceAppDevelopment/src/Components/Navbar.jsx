@@ -12,14 +12,14 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-
-const pages = ['Products', 'Pricing', 'Blog'];
+import { useNavigate } from 'react-router-dom';
+const pages = ['Home', 'About', 'Contact'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
+  const navigate = useNavigate();
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -36,10 +36,12 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" style={{ backgroundColor: 'rgba(10, 10, 10, 0.3)', boxShadow: 'none' }}  >
+    // <AppBar position="static" style={{ backgroundColor: 'rgba(10, 10, 10, 0.3)', boxShadow: 'none' }}  >
+      <AppBar position="static" style={{ backgroundColor: 'black', boxShadow: 'none' }}  >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          {/* <img src="/src/assets/Images/Logo.jpg" style={{display: {xs: 'none', md: 'flex'}, mr: 1}}/> */}
           <Typography
             variant="h6"
             noWrap
@@ -86,7 +88,7 @@ function Navbar() {
               sx={{
                 display: { xs: 'block', md: 'none' },
               }}
-            >
+            > 
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
@@ -111,13 +113,14 @@ function Navbar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            BoatHouse Booking
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                // onClick={handleCloseNavMenu}
+                onClick={() => navigate(`/user/${page}`)}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
@@ -148,7 +151,8 @@ function Navbar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                // <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <MenuItem key={setting} onClick={()=>navigate(`/user/${setting}`)}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

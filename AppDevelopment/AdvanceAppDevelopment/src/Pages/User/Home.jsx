@@ -3,7 +3,10 @@ import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
+import DirectionsBoatIcon from '@mui/icons-material/DirectionsBoat';
 const Home = () => {
+    const navigate = useNavigate();
     return (
         <div>
 
@@ -45,7 +48,7 @@ const Home = () => {
             </Grid>
             </div>
             <div style={{marginTop: '2%'}}>
-            <Button variant="contained" color="success">
+            <Button startIcon={<DirectionsBoatIcon/>} variant="contained" color="success" size="large" onClick={()=>navigate("/user/booking")}>
                 Book BoatHouse now!
                 </Button>
             </div>
