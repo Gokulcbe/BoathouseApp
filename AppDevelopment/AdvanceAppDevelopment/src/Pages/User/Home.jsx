@@ -47,7 +47,7 @@ const Home = () => {
                 {/* </div> */}
             </Grid>
             </div>
-            <div style={{marginTop: '2%'}}>
+            <div style={{marginTop: '2%', paddingBottom: '15%'}}>
             <Button startIcon={<DirectionsBoatIcon/>} variant="contained" color="success" size="large"   onClick={()=>navigate("/user/booking")}>
                 Book BoatHouse now!
                 </Button>

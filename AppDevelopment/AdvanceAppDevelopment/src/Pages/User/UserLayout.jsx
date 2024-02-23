@@ -7,7 +7,7 @@ const UserLayout = ({children}) => {
         // <div className="image-bg" style={{width: "100%", marginTop: "0%"}}>
         <div>
             
-            <header>
+            <header style={{position: 'sticky', top: 0, zIndex: 2}}>
                 <Navbar/>
             </header>
             <main>

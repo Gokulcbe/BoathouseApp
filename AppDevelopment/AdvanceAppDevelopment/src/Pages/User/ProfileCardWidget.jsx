@@ -20,16 +20,15 @@ const ProfileCardWidget =()=> {
                     image="/src/assets/Images/boat1.png"
                     title="green iguana"
                 />
-                <div className='image' style={{height: "120px", width: '120px', backgroundImage: "url('/src/assets/Images/gta.jpeg')", borderRadius: "50%", position: 'relative', left: '32%', bottom: '60px', zIndex: '5'}}/>
+                <div className='image' style={{height: "120px", width: '120px', backgroundImage: "url('/src/assets/Images/gta.jpeg')", borderRadius: "50%", position: 'relative', left: '32%', bottom: '60px', zIndex: '1'}}/>
                 <div style={{position: 'relative', bottom: '70px'}}>
 
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                    Lizard
+                    Gokul D
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000
-                    species, ranging across all continents except Antarctica
+                    SKCET CSE - 3rd Year
                     </Typography>
                 </CardContent>
                 <CardActions>
