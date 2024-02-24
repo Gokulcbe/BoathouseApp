@@ -10,21 +10,7 @@ const AdminLayout =({children})=> {
 
             </header>
             <main style={{position: 'absolute', paddingTop: '15px'}}>
-                
-            <Grid container spacing={2} >
-                <div>
-
-                <Grid item xs={4}>  
-                    <Sidebar/>
-                </Grid>
-                </div>
-                <div>
-
-                <Grid item xs={8} justifyContent="center"> {/* Adjust as needed */}
-  {children}
-</Grid>
-                </div>
-            </Grid>
+              {children}
             </main>
             <footer>
 

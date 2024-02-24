@@ -13,7 +13,8 @@ const LazyAbout = lazy(() => import("./Pages/User/About"))
 import Grid from '@mui/material/Grid';
 const LazyContact = lazy(() => import("./Pages/User/Contact"))
 import AdminLayout from './Pages/admin/AdminLayout'
-import AdminHome from './Pages/admin/AdminHome'
+// import AdminHome from './Pages/admin/AdminHome'
+const LazyAdmin = lazy(() => import("./Pages/admin/Admin"))
 const LaztAdminHome = lazy(()=> import("./Pages/admin/AdminHome"))
 
 const UserRoutes = () => {
@@ -39,7 +40,7 @@ const AdminRoutes = () => {
   return (
     <AdminLayout>
     <Routes>
-      <Route path="/home" element={<LazyLayout component={AdminHome}/>}/>
+      <Route path="/home" element={<LazyLayout component={LazyAdmin}/>}/>
     </Routes>
   </AdminLayout>
 )
