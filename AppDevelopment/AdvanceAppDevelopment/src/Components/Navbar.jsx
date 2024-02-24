@@ -13,6 +13,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useNavigate } from 'react-router-dom';
+import HouseboatIcon from '@mui/icons-material/Houseboat';
+
 const pages = ['Home', 'About', 'Contact'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -40,7 +42,7 @@ function Navbar() {
       <AppBar position="static" style={{ backgroundColor: 'black', boxShadow: 'none' }}  >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <HouseboatIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           {/* <img src="/src/assets/Images/Logo.jpg" style={{display: {xs: 'none', md: 'flex'}, mr: 1}}/> */}
           <Typography
             variant="h6"
@@ -90,13 +92,13 @@ function Navbar() {
               }}
             > 
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={() => navigate(`/user/${page}`)}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <HouseboatIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap

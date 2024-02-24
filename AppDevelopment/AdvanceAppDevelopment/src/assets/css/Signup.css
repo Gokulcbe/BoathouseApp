@@ -52,7 +52,7 @@ body{
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #d6c4c4;
+    background-color: #c5bebe;
     /* background-color: rgba(255,255,255,0.0); */
     background-clip: border-box;
     border: none;
@@ -114,8 +114,8 @@ body{
     justify-content: center;
   }
   a {
-      color: #4650dd!important;
-      text-decoration: underline!important;
+      /* color: #4650dd!important; */
+      /* text-decoration: underline!important; */
       cursor: pointer;
     }
 .text-center {

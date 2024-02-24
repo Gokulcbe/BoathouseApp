@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 import { lazy } from 'react'
 import LazyLayout from './Components/LazyLayout'
 const LazyLogin = lazy(()=> import("./Pages/auth/Login"))
@@ -12,6 +12,10 @@ import { Element } from "react-scroll";
 const LazyAbout = lazy(() => import("./Pages/User/About"))
 import Grid from '@mui/material/Grid';
 const LazyContact = lazy(() => import("./Pages/User/Contact"))
+import AdminLayout from './Pages/admin/AdminLayout'
+import AdminHome from './Pages/admin/AdminHome'
+const LaztAdminHome = lazy(()=> import("./Pages/admin/AdminHome"))
+
 const UserRoutes = () => {
   return(
     <UserLayout>
@@ -24,9 +28,21 @@ const UserRoutes = () => {
         <Route path="/profile" element={<LazyLayout component={LazyProfile}/>}/>
         <Route path="/about" element={<LazyLayout component={LazyAbout}/>}/>
         <Route path="/contact" element={<LazyLayout component={LazyContact}/>}/>
+        <Route path="/Logout" element={<Navigate to="/"/>}/>
       </Routes>
+      <Footer/>
     </UserLayout>
   )
+}
+
+const AdminRoutes = () => {
+  return (
+    <AdminLayout>
+    <Routes>
+      <Route path="/home" element={<LazyLayout component={AdminHome}/>}/>
+    </Routes>
+  </AdminLayout>
+)
 }
 function App() {
   // const [count, setCount] = useState(0)
@@ -38,8 +54,9 @@ function App() {
         <Route path="/" element={<LazyLayout component={LazyLogin}/>}/>
         <Route path="/signup" element={<LazyLayout component={LazySignup}/>}/>
         <Route path="/user/*" element={<UserRoutes/>}/>
+        <Route path="/admin/*" element={<AdminRoutes/>}/>
       </Routes>
-      <Footer/>
+      
     </div>
     
     </BrowserRouter>

@@ -6,3 +6,4 @@ npm i @firebase/auth
 npm i lazy
 npm install styled-components
 npm install firebase
+npm i react-scroll

@@ -5,7 +5,7 @@ import Card from '@mui/material/Card';
 const About = () => {
     return (
         
-        <div style={{backgroundImage: "url('/src/assets/Images/aboutus.png')", backgroundSize: 'cover', paddingBottom: '5%'}}>
+        <div style={{backgroundImage: "url('/src/assets/Images/about.jpg')", backgroundSize: 'cover', paddingBottom: '5%'}}>
             <h1 style={{textAlign: 'center', marginBottom: '5%'}}>About</h1>
             <div style={{marginLeft: '5%', marginRight: '5%'}}>
 
@@ -27,7 +27,7 @@ const About = () => {
         <Grid item xs={4} style={{minWidth: '300px'}}>
             <Card border="light" className="bg-white shadow-sm mb-4" style={{padding: '2%', backgroundColor:'lightgray'}}>
                 <h1>Target Market Value</h1>
-                <img src="/src/assets/Images/gta.jpeg" alt="Not avail" style={{height: '250px', padding: '5px'}}/>
+                <img src="/src/assets/Images/boat2.jpg" alt="Not avail" style={{height: '250px', padding: '5px'}}/>
             </Card>
         </Grid>
         <Grid item xs={8} style={{minWidth: '300px'}}>
@@ -65,9 +65,9 @@ const About = () => {
 
                         </Card>
                         </Grid>
-                        <Grid item xs={8} style={{ marginTop: '40px', minWidth: '200px' }}>
-    <Card border="light" className="bg-white shadow-sm mb-4" style={{ padding: '2%', display: 'block', width: '100%' }}>
-        <h3 style={{ textAlign: 'center' }}>&copy; 2024 ChessAcademy. All rights reserved.</h3>
+                        <Grid item xs={12} sm={8} style={{ marginTop: '40px', minWidth: '200px', display: 'flex', justifyContent: 'center' }}>
+    <Card border="light" className="bg-white shadow-sm mb-4" style={{ padding: '2%', width: '100%', maxWidth: '600px' }}>
+        <h3 style={{ textAlign: 'center', margin: 0 }}>&copy; 2024 ChessAcademy. All rights reserved.</h3>
     </Card>
 </Grid>
                     </Grid>

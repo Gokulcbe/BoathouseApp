@@ -34,7 +34,7 @@ const Contact = () => {
                     </Grid>
                     <Grid item xs={4}  style={{minWidth: '500px'}}>
                         {/* <h1>Again</h1> */}
-                <img src="/src/assets/Images/gta.jpeg" alt="Not avail" style={{width: '100%',top: 0, borderTopLeftRadius: '100px', borderBottomLeftRadius: '200px'}}/>
+                <img src="/src/assets/Images/home.jpg" alt="Not avail" style={{width: '100%',top: 0, borderTopLeftRadius: '100px', borderBottomLeftRadius: '200px'}}/>
                     </Grid>
                 </Grid>
             </div>

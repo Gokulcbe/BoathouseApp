@@ -38,7 +38,9 @@ const BookingDetails = {
 
 const Booking = () => {
     return (
-        <div style={{marginBottom: '10%'}}>
+        // <div style={{}}>
+
+        <div style={{marginBottom: '0%', backgroundImage: "url('/src/assets/Images/booking.jpg')", backgroundSize: 'cover'}}>
             <h1 style={{textAlign: 'center'}}>Booking</h1>
             <div className='booking-grid'>
                 <Grid className="grid-container" container rowSpacing={1} justifyContent="center">
@@ -79,6 +81,7 @@ const Booking = () => {
                 </Grid>
             </div>
         </div>
+                    // </div>
     )
 }
 

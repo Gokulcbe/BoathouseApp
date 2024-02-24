@@ -8,18 +8,28 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
-
+import { useNavigate } from 'react-router-dom';
 
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = React.useState(false);
+    const navigate = useNavigate();
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
       };
+
+    const handleLogin= () => {
+        // console.log(email);
+        if(email.includes('@skcetadmin.ac.in')){
+            navigate('/admin/home')
+        } else {
+            navigate('/user/home')
+        }
+    }
     return (
         <div className="container" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', alignContent: 'center',minHeight: '100lvh'}}>
         {/* <video className="video-bg" autoPlay loop muted>
@@ -94,7 +104,7 @@ function Login() {
                                     <div className='signin'><p>Dont have an account??</p><a href="/signup">Sign up</a></div>
                                 </div>
                             <div className="form-group ml-3 mr-1">
-                                <Button variant="contained" color="success">
+                                <Button variant="contained" color="success" onClick={handleLogin}>
                                     Login
                                 </Button>
                                 </div>
