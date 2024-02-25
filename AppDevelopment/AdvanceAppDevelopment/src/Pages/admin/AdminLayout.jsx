@@ -2,17 +2,17 @@ import React from 'react'
 import propTypes from 'prop-types';
 import Sidebar from './AdminSidebar';
 import Grid from '@mui/material/Grid';
-
+import Admin from './Admin'
 const AdminLayout =({children})=> {
     return (
         <div>
             <header>
-
+                <Admin/>
             </header>
-            <main style={{position: 'absolute', paddingTop: '15px'}}>
+            <main style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
               {children}
             </main>
-            <footer>
+            <footer style={{width: '100%'}}>
 
             </footer>
         </div>

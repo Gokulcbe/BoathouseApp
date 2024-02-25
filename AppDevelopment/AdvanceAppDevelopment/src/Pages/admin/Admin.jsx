@@ -29,6 +29,10 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import SailingIcon from '@mui/icons-material/Sailing';
 import LogoutIcon from '@mui/icons-material/Logout';
+import AdminDashboard from './AdminDashboard';
+import BookingHistory from './BookingHistory';
+
+
 
 const drawerWidth = 240;
 
@@ -128,8 +132,8 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List >
-          {['DashBoard', 'View Bookings', 'View Users', 'Add Boats', 'Logout'].map((text, index) => (
-            <ListItem key={text} disablePadding onClick={()=> navigate(`/${text}`)}>
+          {['DashBoard', 'Bookings', 'Users', 'Add Boats', 'Logout'].map((text, index) => (
+            <ListItem key={text} disablePadding onClick={()=> navigate(`/admin/${text}`)}>
               <ListItemButton>
                 <ListItemIcon>
                   {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
@@ -160,7 +164,9 @@ export default function PersistentDrawerLeft() {
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
-        <Grid container spacing={3}>
+        {/* <AdminDashboard/> */}
+        
+        {/* <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
             <Card sx={{ height: '100%' }}>
               <CardActionArea component={Link} onClick={()=> navigate("/AddCourse")}>
@@ -217,7 +223,7 @@ export default function PersistentDrawerLeft() {
               </CardActionArea>
             </Card>
           </Grid>
-        </Grid>
+        </Grid> */}
       </Main>
     </Box>
   );

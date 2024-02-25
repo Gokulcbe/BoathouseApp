@@ -15,7 +15,9 @@ const LazyContact = lazy(() => import("./Pages/User/Contact"))
 import AdminLayout from './Pages/admin/AdminLayout'
 // import AdminHome from './Pages/admin/AdminHome'
 const LazyAdmin = lazy(() => import("./Pages/admin/Admin"))
-const LaztAdminHome = lazy(()=> import("./Pages/admin/AdminHome"))
+const LazyDashboard = lazy(()=> import("./Pages/admin/AdminDashboard"))
+const LazyAdminBooking = lazy(()=> import("./Pages/admin/BookingHistory"))
+const LazyUserDetails = lazy(() => import("./Pages/admin/ViewUser"))
 
 const UserRoutes = () => {
   return(
@@ -41,7 +43,13 @@ const AdminRoutes = () => {
     <AdminLayout>
     <Routes>
       <Route path="/home" element={<LazyLayout component={LazyAdmin}/>}/>
+      {/* <Route path="/Bookings" element={<LazyLayout component={LazyAdmin}/>}/> */}
+      <Route path="/DashBoard" element={<LazyLayout component={LazyDashboard}/>}/>
+      <Route path="/Bookings" element={<LazyLayout component={LazyAdminBooking}/>}/>
+      <Route path="/Users" element={<LazyLayout component={LazyUserDetails}/>}/>
+      <Route path="/Logout" element={<Navigate to="/"/>}/>
     </Routes>
+    {/* <Footer/> */}
   </AdminLayout>
 )
 }

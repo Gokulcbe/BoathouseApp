@@ -25,7 +25,7 @@ function Login() {
     const handleLogin= () => {
         // console.log(email);
         if(email.includes('@skcetadmin.ac.in')){
-            navigate('/admin/home')
+            navigate('/admin/DashBoard')
         } else {
             navigate('/user/home')
         }

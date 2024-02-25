@@ -7,3 +7,6 @@ npm i lazy
 npm install styled-components
 npm install firebase
 npm i react-scroll
+npm i react-chartjs-2
+npm i chart.js
+npm install @mui/x-charts
