@@ -5,15 +5,71 @@ import Button from '@mui/material/Button';
 import '../../assets/css/home.css'
 import dayjs from 'dayjs';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { useParams } from 'react-router-dom';
+import { styled } from '@mui/material/styles';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+// import Typography from '@mui/material/Typography';
+// import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+
+const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+    '& .MuiDialogContent-root': {
+      padding: theme.spacing(2),
+    },
+    '& .MuiDialogActions-root': {
+      padding: theme.spacing(1),
+    },
+  }));
+  const options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const Booking2 = () => {
     const [value, setValue] = React.useState(dayjs());
     const [data, setData] = useState([]);
     const type = useParams();
+    const [view, setView] = useState([]);
+    const [open, setOpen] = React.useState(false);
+    const [valuea, setValuea] = React.useState(options[0]);
+    const [inputValue, setInputValue] = React.useState('');
+    const navigate = useNavigate();
+
+    const handleClickOpen = (data) => {
+        setView(data);
+        console.log(data)
+      setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    }
+    const handleSubmit = async() => {
+      const data = {
+        email : localStorage.getItem('email'),
+        boattype : view.type,
+        boatId : view.boatId,
+        date : view.date,
+        price : view.price,
+        tickets : valuea,
+        tprice : view.price*valuea,
+        incharge : view.incharge
+      }
+
+      event.preventDefault();
+
+      const response = await axios.post(`http://127.0.0.1:8081/booking/add`, data);
+      console.log(response);
+      navigate('/user/booking');
+    };
+
     useEffect(() => {
 
         console.log(type.id, value.format('YYYY-MM-DD'));
@@ -24,6 +80,8 @@ const Booking2 = () => {
             console.error("Test Error : " ,error);
         })
     },[])
+
+ 
 
     const handleSearch = () => {
         console.log(type, value.format('YYYY-MM-DD'));
@@ -91,7 +149,7 @@ const Booking2 = () => {
                                 </div>
                                 <div style={{marginTop: '5%', padding: '5.5%'}}>
                                     {/* <h3>Description:</h3> */}
-                                    <Button  variant="contained">Book Now</Button>
+                                    <Button  variant="contained" onClick={() =>handleClickOpen(d)}>Book Now</Button>
                                 </div>
                             </div>
                                 </Grid>
@@ -104,6 +162,178 @@ const Booking2 = () => {
             
             )
         })}
+        <React.Fragment>
+      {/* <Button variant="outlined" onClick={handleClickOpen}>
+        Open dialog
+      </Button> */}
+      <BootstrapDialog
+        onClose={handleClose}
+        aria-labelledby="customized-dialog-title"
+        open={open}
+      >
+        <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
+          Review And Confirm Your Booking
+        </DialogTitle>
+        <IconButton
+          aria-label="close"
+          onClick={handleClose}
+          sx={{
+            position: 'absolute',
+            right: 8,
+            top: 8,
+            color: (theme) => theme.palette.grey[500],
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+        <DialogContent dividers>
+          {/* <Typography gutterBottom>
+            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+            consectetur ac, vestibulum at eros.
+          </Typography> */}
+          {/* <h3>Boat Type : {view.boattype}</h3> */}
+          {/* <h3 style={{marginTop: '30px'}}>Boat Capacity : {view.capacity}</h3> */}
+          {/* <h3 style={{marginTop: '30px'}}>Available Ticket : {view.avail}</h3> */}
+          <Grid container spacing={2} direction="row">
+        <Grid item xs={6} style={{minWidth: '100px'}}>
+
+                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                        <div>
+                            <label>Boat Capacity</label>
+                        </div>
+                        <div>
+                            <TextField
+                                id="outlined-required"
+                                type="email"
+                                value={view.capacity}
+                                style={{width: '100%'}}
+                                disabled
+                                />
+                        </div>
+                    </div>
+        </Grid>
+          <Grid item xs={6} style={{minWidth: '100px'}}>
+
+          <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                        <div>
+                            <label>Available Ticket</label>
+                        </div>
+                        <div>
+                            <TextField
+                                id="outlined-required"
+                                type="text"
+                                value={view.avail}
+                                style={{width: '100%'}}
+                                disabled
+                                />
+                        </div>
+                    </div>
+
+        </Grid>
+            </Grid>
+
+                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                        <div>
+                            <label>Boat Type</label>
+                        </div>
+                        <div>
+                            <TextField
+                                id="outlined-required"
+                                type="text"
+                                value={view.boattype}
+                                style={{width: '100%'}}
+                                disabled
+                            />
+                        </div>
+                    </div>
+                    <Grid container spacing={2} direction="row">
+
+                    <Grid item xs={6} style={{minWidth: '100px'}}>
+                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                        <div>
+                            <label>Date</label>
+                        </div>
+                        <div>
+                            <TextField
+                                id="outlined-required"
+                                type="text"
+                                value={view.date}
+                                style={{width: '100%'}}
+                                disabled
+                                />
+                        </div>
+                    </div>
+                    </Grid>
+                    <Grid item xs={6} style={{minWidth: '100px'}}>
+                    <Autocomplete
+                        value={valuea}
+                        onChange={(event, newValue) => {
+                        setValuea(newValue);
+                        }}
+                        inputValue={inputValue}
+                        onInputChange={(event, newInputValue) => {
+                        setInputValue(newInputValue);
+                        }}
+                        id="controllable-states-demo"
+                        options={options}
+                        sx={{ width: 220 , marginTop: '17px'}}
+                        renderInput={(params) => <TextField {...params} label="No of ticket Required" />}
+                    />
+                    </Grid>
+                </Grid>
+                <Grid container spacing={2} direction="row">
+                    <Grid item xs={6} style={{minWidth: '100px'}}>
+                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                        <div>
+                            <label>Price Per Head</label>
+                        </div>
+                        <div>
+                            <TextField
+                                id="outlined-required"
+                                type="text"
+                                value={view.price}
+                                style={{width: '100%'}}
+                                disabled
+                                />
+                        </div>
+                    </div>
+                    </Grid>
+                    <Grid item xs={6} style={{minWidth: '100px'}}>
+                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                        <div>
+                            <label>Total Price</label>
+                        </div>
+                        <div>
+                            <TextField
+                                id="outlined-required"
+                                type="text"
+                                value={view.price*valuea}
+                                style={{width: '100%'}}
+                                disabled
+                                />
+                        </div>
+                    </div>
+                    </Grid>
+                </Grid>
+                
+          {/* <Typography gutterBottom>
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          </Typography> */}
+          {/* <Typography gutterBottom>
+            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
+            magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
+            ullamcorper nulla non metus auctor fringilla.
+          </Typography> */}
+        </DialogContent>
+        <DialogActions>
+          <Button autoFocus onClick={handleSubmit}>
+            Confirm Booking
+          </Button>
+        </DialogActions>
+      </BootstrapDialog>
+    </React.Fragment>
         </div>
     )
 }

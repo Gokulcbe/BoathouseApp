@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -9,34 +9,37 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import TablePagination from '@mui/material/TablePagination';
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(email, boattype, date, tickets, price, tprice, incharge) {
+  return { email, boattype, date, tickets, price, tprice, incharge };
 }
 
 const columns = [
-  { id: 'name', label: 'Name', minWidth: 170 },
-  { id: 'calories', label: 'calories', minWidth: 100 },
+  { id: 'email', label: 'email', minWidth: 170 },
+  { id: 'boattype', label: 'boattype', minWidth: 100 },
   {
-    id: 'fat',
-    label: 'fat',
+    id: 'date',
+    label: 'date',
     minWidth: 170,
     align: 'right',
     format: (value) => value.toLocaleString('en-US'),
   },
   {
-    id: 'carbs',
-    label: 'carbs',
+    id: 'tickets',
+    label: 'tickets',
     minWidth: 170,
     align: 'right',
     format: (value) => value.toLocaleString('en-US'),
   },
   {
-    id: 'protein',
-    label: 'protein',
+    id: 'price',
+    label: 'price',
     minWidth: 170,
     align: 'right',
     format: (value) => value.toFixed(2),
   },
+  { id: 'tprice', label: 'tprice', minWidth: 100 },
+  { id: 'incharge', label: 'incharge', minWidth: 100 },
+
 ];
 
 const rows = [
@@ -83,8 +86,10 @@ const BookingHistory = () => {
             <TableCell style={{minWidth: 100}}>User Email</TableCell>
             <TableCell align="right" style={{minWidth: 100}}>Boat Type</TableCell>
             <TableCell align="right" style={{minWidth: 100}}>Date</TableCell>
-            <TableCell align="right" style={{minWidth: 100}}>Time</TableCell>
-            <TableCell align="right" style={{minWidth: 100}}>Price</TableCell>
+            <TableCell align="right" style={{minWidth: 100}}>No of Tickets</TableCell>
+            <TableCell align="right" style={{minWidth: 100}}>Price per Head</TableCell>
+            <TableCell align="right" style={{minWidth: 100}}>Total Head</TableCell>
+            <TableCell align="right" style={{minWidth: 100}}>Incharge</TableCell>
             <TableCell align="center" style={{minWidth: 100}}>View Details</TableCell>
             <TableCell align="center" style={{minWidth: 100}}>Action</TableCell>
           </TableRow>

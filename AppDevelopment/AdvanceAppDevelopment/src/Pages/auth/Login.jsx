@@ -32,6 +32,7 @@ function Login() {
         const user = await axios.get(`http://127.0.0.1:8081/${email}`);
             if(user.data.password===password){
                 console.log('logged in')
+                localStorage.setItem('email', email);
                 if(email.includes('@skcetadmin.ac.in')){
                     navigate('/admin/DashBoard')
                 } else {
