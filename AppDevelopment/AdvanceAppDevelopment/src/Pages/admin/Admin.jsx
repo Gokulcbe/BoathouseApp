@@ -31,7 +31,7 @@ import SailingIcon from '@mui/icons-material/Sailing';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AdminDashboard from './AdminDashboard';
 import BookingHistory from './BookingHistory';
-
+import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 
 
 const drawerWidth = 240;
@@ -132,7 +132,7 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List >
-          {['DashBoard', 'Bookings', 'Users', 'Add Boats', 'Logout'].map((text, index) => (
+          {['DashBoard', 'Bookings', 'Users', 'Boats','ticket', 'Logout'].map((text, index) => (
             <ListItem key={text} disablePadding onClick={()=> navigate(`/admin/${text}`)}>
               <ListItemButton>
                 <ListItemIcon>
@@ -141,7 +141,8 @@ export default function PersistentDrawerLeft() {
                   {index===1 && <ShoppingCartIcon/> }
                   {index===2 && <PeopleAltIcon/> }
                   {index===3 && <SailingIcon/> }
-                  {index===4 && <LogoutIcon/> }
+                  {index===4   && <ConfirmationNumberIcon/> }
+                  {index===5 && <LogoutIcon/> }
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>

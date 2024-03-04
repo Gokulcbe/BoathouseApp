@@ -7,10 +7,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
 
 const BookingDetails = {
     1: {
-        title: 'Cruise houseboat',
+        title: 'cruise houseboat',
         description: 'luxury boathouses with topmost quality and services',
         images: '/src/assets/Images/boat1.png'
     },
@@ -37,6 +38,7 @@ const BookingDetails = {
 }
 
 const Booking = () => {
+    const navigate = useNavigate();
     return (
         // <div style={{}}>
 
@@ -53,7 +55,7 @@ const Booking = () => {
                                     <p>{houseboat.description}</p>
                                     <img src={houseboat.images} alt={houseboat.title} style={{ height: "250px", maxWidth: '100%' }} />
                                 </div> */}
-                                <div style={{ width: '440px', textAlign: 'center', marginBottom: '5%' }}>
+                                <div style={{ width: '440px', textAlign: 'center', marginBottom: '5%' , marginRight: '25px', marginLeft: '25px'}}>
                                 <Card sx={{ maxWidth: 435 }}>
                                     <CardMedia
                                         component="img"
@@ -70,7 +72,7 @@ const Booking = () => {
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
-                                        <Button size="small">Book now</Button>
+                                        <Button size="small" onClick={()=>navigate(`/user/booking/type/${houseboat.title.split(" ")[0]}`)}>Book now</Button>
                                         {/* <Button size="small">Learn More</Button> */}
                                     </CardActions>
                                     </Card>

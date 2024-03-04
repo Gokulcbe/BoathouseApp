@@ -18,7 +18,17 @@ const LazyAdmin = lazy(() => import("./Pages/admin/Admin"))
 const LazyDashboard = lazy(()=> import("./Pages/admin/AdminDashboard"))
 const LazyAdminBooking = lazy(()=> import("./Pages/admin/BookingHistory"))
 const LazyUserDetails = lazy(() => import("./Pages/admin/ViewUser"))
-
+const LazyBoat = lazy(() => import("./Pages/admin/Boats"))
+const LazyAddBoat = lazy(() => import("./Pages/admin/AddBoat"))
+const LazyAddTicket = lazy(() => import("./Pages/admin/AddTicket"))
+const LazyViewBoat = lazy(()=> import("./Pages/admin/ViewBoat"))
+const LazyEditBoat = lazy(()=>import("./Pages/admin/EditBoat"))
+const LazyViewUserDetails = lazy(() => import("./Pages/admin/viewUser1"))
+const LazyEditUser = lazy(() => import("./Pages/admin/EditUserDetails"))
+const LazyBookingType = lazy(() => import('./Pages/User/Booking2'))
+const LazyTicket = lazy(() => import('./Pages/admin/Ticket'));
+const LazyViewTicket = lazy(() => import('./Pages/admin/ViewTicket'))
+const LazyEditTicket = lazy(() => import('./Pages/admin/EditTicket'))
 const UserRoutes = () => {
   return(
     <UserLayout>
@@ -28,9 +38,11 @@ const UserRoutes = () => {
                   </Element>}/>
         {/* <Route path="/home" element={<LazyLayout component={LazyHome}/>}/> */}
         <Route path="/booking" element={<LazyLayout component={LazyBooking}/>}/>
+        <Route path="/booking/type/:id" element={<LazyLayout component={LazyBookingType}/>}/>
         <Route path="/profile" element={<LazyLayout component={LazyProfile}/>}/>
         <Route path="/about" element={<LazyLayout component={LazyAbout}/>}/>
         <Route path="/contact" element={<LazyLayout component={LazyContact}/>}/>
+        <Route path="/editUser" element={<LazyLayout component={LazyProfile}/>}/>
         <Route path="/Logout" element={<Navigate to="/"/>}/>
       </Routes>
       <Footer/>
@@ -47,6 +59,16 @@ const AdminRoutes = () => {
       <Route path="/DashBoard" element={<LazyLayout component={LazyDashboard}/>}/>
       <Route path="/Bookings" element={<LazyLayout component={LazyAdminBooking}/>}/>
       <Route path="/Users" element={<LazyLayout component={LazyUserDetails}/>}/>
+      <Route path="/Boats" element={<LazyLayout component={LazyBoat}/>}/>
+      <Route path="/addboat" element={<LazyLayout component={LazyAddBoat}/>}/>
+      <Route path="/addticket" element={<LazyLayout component={LazyAddTicket}/>}/>
+      <Route path="/viewboat/:id" element={<LazyLayout component={LazyViewBoat}/>}/>
+      <Route path="/viewTicket/:id" element={<LazyLayout component={LazyViewTicket}/>}/>
+      <Route path="/editboat/:id" element={<LazyLayout component={LazyEditBoat}/>}/>
+      <Route path="/editTicket/:id" element={<LazyLayout component={LazyEditTicket}/>}/>
+      <Route path="/viewUserDetails/:email" element={<LazyLayout component={LazyViewUserDetails}/>}/>
+      <Route path="/editUser/:email" element={<LazyLayout component={LazyEditUser}/>}/>
+      <Route path="/ticket" element={<LazyLayout component={LazyTicket}/>}/>
       <Route path="/Logout" element={<Navigate to="/"/>}/>
     </Routes>
     {/* <Footer/> */}

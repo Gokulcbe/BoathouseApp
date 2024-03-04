@@ -8,6 +8,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -15,6 +16,7 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = React.useState(false);
+    const [error, setError] = useState('');
     const navigate = useNavigate();
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -22,13 +24,23 @@ function Login() {
         event.preventDefault();
       };
 
-    const handleLogin= () => {
+    const handleLogin= async() => {
         // console.log(email);
-        if(email.includes('@skcetadmin.ac.in')){
-            navigate('/admin/DashBoard')
-        } else {
-            navigate('/user/home')
+        if(email===null || password===null){
+            setError("Provide all details")
         }
+        const user = await axios.get(`http://127.0.0.1:8081/${email}`);
+            if(user.data.password===password){
+                console.log('logged in')
+                if(email.includes('@skcetadmin.ac.in')){
+                    navigate('/admin/DashBoard')
+                } else {
+                    navigate('/user/home')
+                }
+            } else {
+                setError('Wrong password');
+                return;
+            }
     }
     return (
         <div className="container" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', alignContent: 'center',minHeight: '100lvh'}}>
@@ -52,6 +64,7 @@ function Login() {
                             </div>
                         <div >
                             <div className="loginform">
+                                {error && <p style={{color: 'red', textAlign: 'center'}}>{error}</p>}
                                 <div className="border border-dark pb-3 rounded-lg" style={{width: "100%" }}>
                                     <div className="text-center p-1 mb-2 text-light " >
                                         <div className="notice">

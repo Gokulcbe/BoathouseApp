@@ -1,10 +1,42 @@
-import React from 'react'
+import React , {useEffect, useState} from 'react'
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const GeneralInfoForm=()=> {
+    const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [birth, setBirth] = useState('');
+    const [gender, setGender] = useState('');
+    const [phone, setPhone] = useState('');
+    const [address, setAddress] = useState('');
+    const [atype, setAtype] = useState('');
+    const [city, setCity] = useState('');
+    const [pincode, setPincode] = useState('');
+
+    useEffect(() => {
+        axios.get(`http://127.0.0.1:8081/gokugokul185@gmail.com`).then(response => {
+            console.log(response.data.email);
+            setEmail(response.data.email);
+            setFirstName(response.data.firstname);
+            setLastName(response.data.lastname);
+            setBirth(response.data.birthday);
+            setGender(response.data.gender);
+            setPhone(response.data.phoneno);
+            setAddress(response.data.address);
+            setAtype(response.data.residenttype);
+            setCity(response.data.city);
+            setPincode(response.data.zipcode);
+        })
+        
+    },[])
+
+
     return (
         <div style={{ marginLeft: '5%', marginRight: '5%'}}>
             <Card border="light" className="bg-white shadow-sm mb-4" style={{padding: '2%'}}>
@@ -19,8 +51,8 @@ const GeneralInfoForm=()=> {
                         <div>
                             <TextField
                                 id="outlined-required"
-                                type="email"
-                                value="Gokul"
+                                type="text"
+                                value={firstName}
                                 style={{width: '100%'}}
                                 disabled
                             />
@@ -35,8 +67,8 @@ const GeneralInfoForm=()=> {
                         <div>
                             <TextField
                                 id="outlined-required"
-                                type="email"
-                                value="D"
+                                type="text"
+                                value={lastName}
                                 style={{width: '100%'}}
                                 disabled
                             />
@@ -54,8 +86,8 @@ const GeneralInfoForm=()=> {
                         <div>
                             <TextField
                                 id="outlined-required"
-                                type="email"
-                                value="14/09/2001"
+                                type="text"
+                                value={birth}
                                 style={{width: '100%'}}
                                 disabled
                             />
@@ -70,8 +102,8 @@ const GeneralInfoForm=()=> {
                         <div>
                             <TextField
                                 id="outlined-required"
-                                type="email"
-                                value="Male"
+                                type="text"
+                                value={gender}
                                 style={{width: '100%'}}
                                 disabled
                             />
@@ -90,7 +122,7 @@ const GeneralInfoForm=()=> {
                             <TextField
                                 id="outlined-required"
                                 type="email"
-                                value="gokugokul185@gmail.com"
+                                value={email}
                                 style={{width: '100%'}}
                                 disabled
                             />
@@ -106,7 +138,7 @@ const GeneralInfoForm=()=> {
                             <TextField
                                 id="outlined-required"
                                 type="email"
-                                value="9344704998"
+                                value={phone}
                                 style={{width: '100%'}}
                                 disabled
                             />
@@ -125,8 +157,8 @@ const GeneralInfoForm=()=> {
                         <div>
                             <TextField
                                 id="outlined-required"
-                                type="email"
-                                value="2/6, Kumaran Nagar, Cheran Maanagar"
+                                type="text"
+                                value={address}
                                 style={{width: '100%'}}
                                 disabled
                             />
@@ -141,8 +173,8 @@ const GeneralInfoForm=()=> {
                         <div>
                             <TextField
                                 id="outlined-required"
-                                type="email"
-                                value="Permanent"
+                                type="text"
+                                value={atype}
                                 style={{width: '100%'}}
                                 disabled
                             />
@@ -155,13 +187,29 @@ const GeneralInfoForm=()=> {
                 <Grid item xs={4} style={{minWidth: '200px'}}>
                     <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
-                            <label>Email</label>
+                            <label>City</label>
                         </div>
                         <div>
                             <TextField
                                 id="outlined-required"
-                                type="email"
-                                value="gokugokul185@gmail.com"
+                                type="text"
+                                value={city}
+                                style={{width: '100%'}}
+                                disabled
+                            />
+                        </div>
+                    </div>
+                </Grid>
+                <Grid item xs={4} style={{minWidth: '200px'}}>
+                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                        <div>
+                            <label>Pincode</label>
+                        </div>
+                        <div>
+                            <TextField
+                                id="outlined-required"
+                                type="number"
+                                value={pincode}
                                 style={{width: '100%'}}
                                 disabled
                             />
@@ -176,24 +224,8 @@ const GeneralInfoForm=()=> {
                         <div>
                             <TextField
                                 id="outlined-required"
-                                type="email"
-                                value="9344704998"
-                                style={{width: '100%'}}
-                                disabled
-                            />
-                        </div>
-                    </div>
-                </Grid>
-                <Grid item xs={4} style={{minWidth: '200px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
-                        <div>
-                            <label>Phone no</label>
-                        </div>
-                        <div>
-                            <TextField
-                                id="outlined-required"
-                                type="email"
-                                value="9344704998"
+                                type="text"
+                                value={pincode}
                                 style={{width: '100%'}}
                                 disabled
                             />
@@ -202,7 +234,7 @@ const GeneralInfoForm=()=> {
                 </Grid>
             </Grid>
             <div>
-            <   Button variant="contained" type="submit">Edit</Button>
+            <   Button variant="contained" type="submit" onClick={()=> navigate('/user/editUser')}>Edit</Button>
             </div>
         </form>
             </Card>

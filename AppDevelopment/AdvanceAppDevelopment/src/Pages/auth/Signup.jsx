@@ -8,7 +8,9 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
-
+import axios from 'axios';
+// import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const [email, setEmail] = useState('');
@@ -17,7 +19,8 @@ const Signup = () => {
     const [showPassword, setShowPassword] = React.useState(false);
     const [confirmPassword, setConfirmPassword] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('')
-    // const [error, setError] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     // setError('none');
     const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -25,6 +28,41 @@ const Signup = () => {
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
       };
+
+    const signUp = async() =>  {
+        // try{
+            if(email===null || password===null || confirmPassword===null || username===null || phoneNumber===null){
+                setError('Provide All Details');
+                return;
+            }
+            if(password!==confirmPassword){
+                setError('password and confirm password does not match');
+                return;
+            }
+            if(phoneNumber.length!==10){
+                setError('provide valid phone no');
+                return;
+            }
+            // const userExist = await axios.get(`http://127.0.0.1:8081/${email}`);
+            // console.log(userExist);
+            // if(userExist){
+            //     setError('User email already exist, Try Login!');
+            //     return;
+            // } 
+            const data = {
+                email : email,
+                username : username,
+                password : password,
+                phoneno : phoneNumber,
+            }
+            const response = await axios.post('http://127.0.0.1:8081/', data);
+            console.log(response.log);
+            navigate('/')
+            
+        // } catch(e){
+        //     setError(e);
+        // }
+    }
     return (
         <div className="container" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', alignContent: 'center',minHeight: '100lvh', minWidth: '100lvw'}}>
         <video className="video-bg" autoPlay loop muted>
@@ -54,6 +92,7 @@ const Signup = () => {
                     <div >
                         {/* <h1>Welcome!!! Sign up New Account</h1> */}
                         <div className="loginform">
+                            {error && <p style={{color: 'red', textAlign: 'center'}}>{error}</p>}
                             <div className="border border-dark pb-3 rounded-lg" style={{width: "100%"}}>
                                 <div className="text-center p-1 mb-2 text-light " >
                                 <div className="notice">
@@ -155,7 +194,7 @@ const Signup = () => {
                                     <div className='signin'><p>Already have an account??</p><a href="/">Sign in</a></div>
                                 </div>
                                 <div className="form-group ml-3 mr-1">
-                                <Button variant="contained" color="success">
+                                <Button variant="contained" color="success" onClick={signUp}>
                                     Register
                                 </Button>
                                 </div>
