@@ -22,7 +22,7 @@ const EditUserDetails=()=> {
     const [userName, setUserName] = useState('');
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8081/${email}`).then(response => {
+        axios.get(`http://127.0.0.1:8081/user/${email}`).then(response => {
             console.log(response.data.email);
             setFirstName(response.data.firstname);
             setLastName(response.data.lastname);
@@ -56,7 +56,7 @@ const EditUserDetails=()=> {
         event.preventDefault();
         try{
             console.log(data);
-            const response = await axios.post("http://127.0.0.1:8081/", data);
+            const response = await axios.post("http://127.0.0.1:8081/user/post", data);
             console.log(response.data);
             // setOpen(false);
             navigate('/admin/Users');

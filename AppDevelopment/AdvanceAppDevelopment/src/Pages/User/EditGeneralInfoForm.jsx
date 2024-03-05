@@ -22,7 +22,7 @@ const EditGeneralInfoForm=()=> {
     const [userName, setUserName] = useState('');
     const user = localStorage.getItem('email');
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8081/${user}`).then(response => {
+        axios.get(`http://127.0.0.1:8081/user/${user}`).then(response => {
             console.log(response.data.email);
             setEmail(response.data.email);
             setFirstName(response.data.firstname);
@@ -57,7 +57,7 @@ const EditGeneralInfoForm=()=> {
         event.preventDefault();
         try{
             console.log(data);
-            const response = await axios.post("http://127.0.0.1:8081/", data);
+            const response = await axios.post("http://127.0.0.1:8081/user/post", data);
             console.log(response.data);
             // setOpen(false);
             navigate('/user/Profile');

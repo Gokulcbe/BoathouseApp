@@ -19,8 +19,9 @@ const GeneralInfoForm=()=> {
     const [city, setCity] = useState('');
     const [pincode, setPincode] = useState('');
     const user = localStorage.getItem('email');
+    // const user = "gokugokul186@gmail.com"
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8081/${user}`).then(response => {
+        axios.get(`http://127.0.0.1:8081/user/${user}`).then(response => {
             console.log(response.data.email);
             setEmail(response.data.email);
             setFirstName(response.data.firstname);

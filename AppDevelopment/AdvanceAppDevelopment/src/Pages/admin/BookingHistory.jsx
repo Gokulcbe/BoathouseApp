@@ -8,6 +8,8 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import TablePagination from '@mui/material/TablePagination';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function createData(email, boattype, date, tickets, price, tprice, incharge) {
   return { email, boattype, date, tickets, price, tprice, incharge };
@@ -62,7 +64,17 @@ const rows = [
 const BookingHistory = () => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  const [temp,setTemp] = useState('');
+  // const [temp,setTemp] = useState('');
+  const navigate = useNavigate();
+  const [data,setData] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:8081/booking/get').then(response => {
+      console.log(response.data);
+      setData(response.data);
+    })
+  },[])
+
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -88,9 +100,9 @@ const BookingHistory = () => {
             <TableCell align="right" style={{minWidth: 100}}>Date</TableCell>
             <TableCell align="right" style={{minWidth: 100}}>No of Tickets</TableCell>
             <TableCell align="right" style={{minWidth: 100}}>Price per Head</TableCell>
-            <TableCell align="right" style={{minWidth: 100}}>Total Head</TableCell>
+            <TableCell align="right" style={{minWidth: 100}}>Total Price</TableCell>
             <TableCell align="right" style={{minWidth: 100}}>Incharge</TableCell>
-            <TableCell align="center" style={{minWidth: 100}}>View Details</TableCell>
+            {/* <TableCell align="center" style={{minWidth: 100}}>View Details</TableCell> */}
             <TableCell align="center" style={{minWidth: 100}}>Action</TableCell>
           </TableRow>
         </TableHead>
@@ -111,13 +123,13 @@ const BookingHistory = () => {
               <TableCell align="right"><Button variant="contained">Edit Booking</Button></TableCell>
             </TableRow>
           ))} */}
-            {rows
+            {data
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
+              .map((data) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                  <TableRow hover role="checkbox" tabIndex={-1} key={data.id}>
                     {columns.map((column) => {
-                      const value = row[column.id];
+                      const value = data[column.id];
                       // setTemp(column.id);
                       return (
                         <TableCell key={column.id} align={column.align}>
@@ -127,8 +139,8 @@ const BookingHistory = () => {
                         </TableCell>
                       );
                     })}
-                    <TableCell align="right"><Button variant="contained" color='secondary'>View Booking</Button></TableCell>
-                <TableCell align="right"><Button variant="contained">Edit Booking</Button></TableCell>
+                    {/* <TableCell align="right"><Button variant="contained" color='secondary' onClick={() => navigate(`/admin/viewBooking/${data.id}`)}>View Booking</Button></TableCell> */}
+                <TableCell align="right"><Button variant="contained" onClick={() => navigate(`/admin/editBooking/${data.id}`)}>Edit Booking</Button></TableCell>
                   </TableRow>
                 );
               })}

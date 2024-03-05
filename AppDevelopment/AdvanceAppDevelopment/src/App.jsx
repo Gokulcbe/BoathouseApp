@@ -29,6 +29,7 @@ const LazyBookingType = lazy(() => import('./Pages/User/Booking2'))
 const LazyTicket = lazy(() => import('./Pages/admin/Ticket'));
 const LazyViewTicket = lazy(() => import('./Pages/admin/ViewTicket'))
 const LazyEditTicket = lazy(() => import('./Pages/admin/EditTicket'))
+const LazyEditBooking = lazy(() => import('./Pages/admin/EditBooking'))
 const UserRoutes = () => {
   return(
     <UserLayout>
@@ -64,6 +65,7 @@ const AdminRoutes = () => {
       <Route path="/addticket" element={<LazyLayout component={LazyAddTicket}/>}/>
       <Route path="/viewboat/:id" element={<LazyLayout component={LazyViewBoat}/>}/>
       <Route path="/viewTicket/:id" element={<LazyLayout component={LazyViewTicket}/>}/>
+      <Route path="/editBooking/:id" element={<LazyLayout component={LazyEditBooking}/>}/>
       <Route path="/editboat/:id" element={<LazyLayout component={LazyEditBoat}/>}/>
       <Route path="/editTicket/:id" element={<LazyLayout component={LazyEditTicket}/>}/>
       <Route path="/viewUserDetails/:email" element={<LazyLayout component={LazyViewUserDetails}/>}/>

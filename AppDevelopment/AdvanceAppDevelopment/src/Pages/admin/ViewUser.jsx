@@ -81,7 +81,7 @@ const ViewUser = () => {
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   useEffect(()=>{
-    axios.get('http://127.0.0.1:8081/').then(response => {
+    axios.get('http://127.0.0.1:8081/user').then(response => {
       console.log(response.data);
       setData(response.data);
     })

@@ -26,9 +26,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 @AllArgsConstructor
-@CrossOrigin
+// @CrossOrigin
 @RestController
-@RequestMapping("/booking")
+// @RequestMapping("/booking")
+@CrossOrigin("*")
+@RequestMapping("/api/v1/auth")
 public class BookingController {
     private BookingService bookingService;
 
@@ -44,8 +46,8 @@ public class BookingController {
         return ResponseEntity.ok(bookingDTO);
     }
 
-    @GetMapping("/get")
-    public ResponseEntity<List<BookingDTO>> getAllBooking(@RequestParam String param) {
+    @GetMapping("/")
+    public ResponseEntity<List<BookingDTO>> getAllBooking() {
         List<BookingDTO> bookings = bookingService.getAllBookings();
         return ResponseEntity.ok(bookings);
     }

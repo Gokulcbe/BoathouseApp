@@ -29,19 +29,28 @@ function Login() {
         if(email===null || password===null){
             setError("Provide all details")
         }
-        const user = await axios.get(`http://127.0.0.1:8081/${email}`);
-            if(user.data.password===password){
-                console.log('logged in')
-                localStorage.setItem('email', email);
-                if(email.includes('@skcetadmin.ac.in')){
-                    navigate('/admin/DashBoard')
-                } else {
-                    navigate('/user/home')
-                }
-            } else {
-                setError('Wrong password');
-                return;
-            }
+        // const user = await axios.get(`http://127.0.0.1:8081/${email}`);
+        //     if(user.data.password===password){
+        //         console.log('logged in')
+        //         localStorage.setItem('email', email);
+        //         if(email.includes('@skcetadmin.ac.in')){
+        //             navigate('/admin/DashBoard')
+        //         } else {
+        //             navigate('/user/home')
+        //         }
+        //     } else {
+        //         setError('Wrong password');
+        //         return;
+        //     }
+        const data = {
+            username: email,
+            password: password
+        }
+        const user = await axios.post(`http://127.0.0.1:8081/products/authenticate`, data);
+        console.log(user);
+        localStorage.setItem('token', user.data);
+        localStorage.setItem('email', email);
+        navigate('/user/home');
     }
     return (
         <div className="container" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', alignContent: 'center',minHeight: '100lvh'}}>

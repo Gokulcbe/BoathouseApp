@@ -40,6 +40,7 @@ const Booking2 = () => {
     const [open, setOpen] = React.useState(false);
     const [valuea, setValuea] = React.useState(options[0]);
     const [inputValue, setInputValue] = React.useState('');
+    const [error, setError] = useState('');
     const navigate = useNavigate();
 
     const handleClickOpen = (data) => {
@@ -52,23 +53,40 @@ const Booking2 = () => {
         setOpen(false);
     }
     const handleSubmit = async() => {
-      const data = {
-        email : localStorage.getItem('email'),
-        boattype : view.type,
+        if(valuea>view.avail){
+            setError("Ticket not Available");
+        } else{
+
+            const data3 = {
+                email : localStorage.getItem('email'),
+                boattype : view.type,
         boatId : view.boatId,
         date : view.date,
         price : view.price,
         tickets : valuea,
         tprice : view.price*valuea,
         incharge : view.incharge
-      }
-
-      event.preventDefault();
-
-      const response = await axios.post(`http://127.0.0.1:8081/booking/add`, data);
-      console.log(response);
-      navigate('/user/booking');
-    };
+    }
+    event.preventDefault();
+    console.log("Data : ", data[0]);
+    const data2 = {
+        id : data[0].id,
+        avail : data[0].avail-valuea,
+        boatId : data[0].boatId,
+        date : data[0].date,
+        type : data[0].type
+    }
+    
+    event.preventDefault();
+    
+    const response = await axios.post(`http://127.0.0.1:8081/booking/add`, data3);
+    console.log(response);
+    console.log(data2);
+    const response2 = await axios.post(`http://127.0.0.1:8081/ticket/add`, data2);
+    console.log("response 2 : ", response2);
+    navigate('/user/booking');
+}
+};
 
     useEffect(() => {
 
@@ -174,6 +192,7 @@ const Booking2 = () => {
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
           Review And Confirm Your Booking
         </DialogTitle>
+        {error && <p>{error}</p>}
         <IconButton
           aria-label="close"
           onClick={handleClose}

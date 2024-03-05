@@ -22,7 +22,7 @@ const ViewUser1=()=> {
 
     useEffect(() => {
         // if (email) {
-            axios.get(`http://127.0.0.1:8081/${email}`).then(response => {
+            axios.get(`http://127.0.0.1:8081/user/${email}`).then(response => {
                 console.log(response.data);
                 setFirstName(response.data.firstname);
                 setLastName(response.data.lastname);

@@ -49,14 +49,22 @@ const Signup = () => {
             //     setError('User email already exist, Try Login!');
             //     return;
             // } 
-            const data = {
+            const data1 = {
                 email : email,
                 username : username,
                 password : password,
                 phoneno : phoneNumber,
             }
-            const response = await axios.post('http://127.0.0.1:8081/', data);
-            console.log(response.log);
+            const data = {
+                email : email,
+                name : username,
+                password : password,
+                roles : 'USER'
+            }
+            const response = await axios.post('http://localhost:8081/products/new', data);
+            const response2 = await axios.post('http://localhost:8081/user/post', data1);
+            console.log(response);
+            console.log(response2);
             navigate('/')
             
         // } catch(e){
