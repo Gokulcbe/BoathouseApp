@@ -60,7 +60,7 @@ const EditTicket=()=> {
             <form>
             <Grid container spacing={2} direction="row">
                 <Grid item xs={6} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Boat Id</label>
                         </div>
@@ -77,7 +77,7 @@ const EditTicket=()=> {
                     </div>
                 </Grid>
                 <Grid item xs={6} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Ticket Numbers</label>
                         </div>
@@ -97,7 +97,7 @@ const EditTicket=()=> {
 
             <Grid container spacing={2} direction="row">
                 <Grid item xs={6} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Date</label>
                         </div>
@@ -119,7 +119,7 @@ const EditTicket=()=> {
                     </div>
                 </Grid>
                 <Grid item xs={6} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Boat Type</label>
                         </div>

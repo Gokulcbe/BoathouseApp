@@ -47,17 +47,22 @@ const Login = ({ setLoginStatus }) => {
             username: email,
             password: password
         }
-        const user = await axios.post(`http://127.0.0.1:8081/products/authenticate`, data);
-        console.log(user);
-        // localStorage.setItem('token', user.data);
-        sessionStorage.setItem("token", user.data);
-        console.log(sessionStorage.getItem("token"));
-        sessionStorage.setItem("tokenExpiration", Date.now() + 86400000);
-        setLoginStatus(true);
-        const decode = jwtDecode(user?.data);
-        console.log("Decoded token:", decode);
+        try{
 
-        navigate('/user/home');
+            const user = await axios.post(`http://127.0.0.1:8081/products/authenticate`, data);
+            console.log(user);
+            // localStorage.setItem('token', user.data);
+            sessionStorage.setItem("token", user.data);
+            console.log(sessionStorage.getItem("token"));
+            sessionStorage.setItem("tokenExpiration", Date.now() + 86400000);
+            setLoginStatus(true);
+            const decode = jwtDecode(user?.data);
+            console.log("Decoded token:", decode);
+            
+            navigate('/user/home');
+        } catch(error){
+            setError("Invalid Credential")
+        }
     }
     return (
         <div className="container" style={{display: 'flex', alignItems: 'center', justifyContent: 'center', alignContent: 'center',minHeight: '100lvh'}}>

@@ -61,7 +61,7 @@ const EditBooking=()=> {
             <form>
             <Grid container spacing={2} direction="row">
                 <Grid item xs={6} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>User Email</label>
                         </div>
@@ -78,7 +78,7 @@ const EditBooking=()=> {
                     </div>
                 </Grid>
                 <Grid item xs={6} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Boat Type</label>
                         </div>
@@ -98,7 +98,7 @@ const EditBooking=()=> {
 
             <Grid container spacing={2} direction="row">
                 <Grid item xs={6} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Date</label>
                         </div>
@@ -115,7 +115,7 @@ const EditBooking=()=> {
                     </div>
                 </Grid>
                 <Grid item xs={6} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>No of Tickets</label>
                         </div>
@@ -135,7 +135,7 @@ const EditBooking=()=> {
 
             <Grid container spacing={2} direction="row">
                 <Grid item xs={6} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Price Per Head</label>
                         </div>
@@ -152,7 +152,7 @@ const EditBooking=()=> {
                     </div>
                 </Grid>
                 <Grid item xs={6} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Total Price</label>
                         </div>
@@ -173,7 +173,7 @@ const EditBooking=()=> {
 
             <Grid container spacing={2} direction="row">
                 <Grid item xs={10} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Incharge</label>
                         </div>

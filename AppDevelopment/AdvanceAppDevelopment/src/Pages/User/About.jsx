@@ -67,7 +67,7 @@ const About = () => {
                         </Grid>
                         <Grid item xs={12} sm={8} style={{ marginTop: '40px', minWidth: '200px', display: 'flex', justifyContent: 'center' }}>
     <Card border="light" className="bg-white shadow-sm mb-4" style={{ padding: '2%', width: '100%', maxWidth: '600px' }}>
-        <h3 style={{ textAlign: 'center', margin: 0 }}>&copy; 2024 ChessAcademy. All rights reserved.</h3>
+        <h3 style={{ textAlign: 'center', margin: 0 }}>&copy; 2024 BoatHouse Booking. All rights reserved.</h3>
     </Card>
 </Grid>
                     </Grid>

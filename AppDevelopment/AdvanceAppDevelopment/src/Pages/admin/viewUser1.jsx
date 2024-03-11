@@ -45,7 +45,7 @@ const ViewUser1=()=> {
             <form>
             <Grid container spacing={2} direction="row">
                 <Grid item xs={6} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>First Name</label>
                         </div>
@@ -61,7 +61,7 @@ const ViewUser1=()=> {
                     </div>
                 </Grid>
                 <Grid item xs={6} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Last Name</label>
                         </div>
@@ -80,7 +80,7 @@ const ViewUser1=()=> {
 
             <Grid container spacing={2} direction="row">
                 <Grid item xs={6} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Birthday</label>
                         </div>
@@ -96,7 +96,7 @@ const ViewUser1=()=> {
                     </div>
                 </Grid>
                 <Grid item xs={6} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Gender</label>
                         </div>
@@ -115,7 +115,7 @@ const ViewUser1=()=> {
 
             <Grid container spacing={2} direction="row">
                 <Grid item xs={6} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Email</label>
                         </div>
@@ -131,7 +131,7 @@ const ViewUser1=()=> {
                     </div>
                 </Grid>
                 <Grid item xs={6} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Phone no</label>
                         </div>
@@ -151,7 +151,7 @@ const ViewUser1=()=> {
 
             <Grid container spacing={2} direction="row">
                 <Grid item xs={10} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Address</label>
                         </div>
@@ -167,7 +167,7 @@ const ViewUser1=()=> {
                     </div>
                 </Grid>
                 <Grid item xs={2} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Resident Type</label>
                         </div>
@@ -186,7 +186,7 @@ const ViewUser1=()=> {
 
             <Grid container spacing={2} direction="row">
                 <Grid item xs={4} style={{minWidth: '200px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>City</label>
                         </div>
@@ -202,7 +202,7 @@ const ViewUser1=()=> {
                     </div>
                 </Grid>
                 <Grid item xs={4} style={{minWidth: '200px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Phone no</label>
                         </div>
@@ -218,7 +218,7 @@ const ViewUser1=()=> {
                     </div>
                 </Grid>
                 <Grid item xs={4} style={{minWidth: '200px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Phone no</label>
                         </div>

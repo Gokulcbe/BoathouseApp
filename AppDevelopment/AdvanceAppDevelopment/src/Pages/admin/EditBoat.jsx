@@ -53,7 +53,7 @@ const EditBoat=()=> {
             <form>
             <Grid container spacing={2} direction="row">
                 <Grid item xs={6} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Incharge</label>
                         </div>
@@ -70,7 +70,7 @@ const EditBoat=()=> {
                     </div>
                 </Grid>
                 <Grid item xs={6} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Boat Type</label>
                         </div>
@@ -90,7 +90,7 @@ const EditBoat=()=> {
 
             <Grid container spacing={2} direction="row">
                 <Grid item xs={6} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Boat Capacity</label>
                         </div>
@@ -107,7 +107,7 @@ const EditBoat=()=> {
                     </div>
                 </Grid>
                 <Grid item xs={6} style={{minWidth: '400px'}}>
-                    <div className="form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
+                    <div className="1form-group ml-3 mr-1" style={{marginBottom: '3%'}}>
                         <div>
                             <label>Price</label>
                         </div>
