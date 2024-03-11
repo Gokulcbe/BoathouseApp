@@ -1,4 +1,4 @@
-import React, { useEffect , } from 'react'
+// import React, { useEffect  } from 'react'
 import Grid from '@mui/material/Grid';
 import GeneralInfoForm from './GeneralInfoForm';
 import ProfileCardWidget from './ProfileCardWidget';
@@ -9,7 +9,7 @@ import EditGeneralInfoForm from './EditGeneralInfoForm';
 const Profile = ()=> {
 
     return (
-        <div style={{display: 'flex', marginTop: '5%'}}>
+        <div className="profile1" style={{display: 'flex', marginTop: '5%'}}>
             {/* <h1>Profile</h1> */}
             <Grid container spacing={1} >
                 <Grid item xs={8}  style={{minWidth: '500px'}}>

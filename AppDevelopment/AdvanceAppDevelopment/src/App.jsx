@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useNavigate} from 'react-router-dom'
 import { lazy } from 'react'
 import LazyLayout from './Components/LazyLayout'
 const LazyLogin = lazy(()=> import("./Pages/auth/Login"))
@@ -30,6 +30,10 @@ const LazyTicket = lazy(() => import('./Pages/admin/Ticket'));
 const LazyViewTicket = lazy(() => import('./Pages/admin/ViewTicket'))
 const LazyEditTicket = lazy(() => import('./Pages/admin/EditTicket'))
 const LazyEditBooking = lazy(() => import('./Pages/admin/EditBooking'))
+
+import { useEffect } from "react";
+import { useState } from "react";
+import Login from './Pages/auth/Login'
 const UserRoutes = () => {
   return(
     <UserLayout>
@@ -79,20 +83,51 @@ const AdminRoutes = () => {
 }
 function App() {
   // const [count, setCount] = useState(0)
+  // const navigate = useNavigate();
+  const [loginStatus, setLoginStatus] = useState(true);
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    if (!token) {
+      // No token found,set the setLoginStatus to false
+      setLoginStatus(false);
+    } else {
+      // Token found, check if it's expired
+      const tokenExpiration = sessionStorage.getItem("tokenExpiration");
+      if (tokenExpiration && Date.now() > tokenExpiration) {
+        setLoginStatus(false);
+      } else {
+        setLoginStatus(true);
+      }
+    }
+  }, []);
+
+  // if (!loginStatus) {
+  //   return <Login setLoginStatus={setLoginStatus} />;
+  // }
+
 
   return (
     <BrowserRouter>
     <div className='App'>
       <Routes>
-        <Route path="/" element={<LazyLayout component={LazyLogin}/>}/>
+        {/* <Route path="/" element={<LazyLayout component={LazyLogin}/>}/> */}
+        <Route path="/" element={<Login setLoginStatus={setLoginStatus}/>}/>
         <Route path="/signup" element={<LazyLayout component={LazySignup}/>}/>
-        <Route path="/user/*" element={<UserRoutes/>}/>
-        <Route path="/admin/*" element={<AdminRoutes/>}/>
+        <Route path="/user/*" element={ loginStatus ? <UserRoutes/> : <Login setLoginStatus={setLoginStatus}/>}/>
+        <Route path="/admin/*" element={ loginStatus ? <AdminRoutes/> : <Login setLoginStatus={setLoginStatus}/>}/>
+        {/* {loginStatus ? (
+            <>
+              <Route path="/user/*" element={<UserRoutes />}/>
+              <Route path="/admin/*" element={<AdminRoutes />}/>
+            </>
+          ) : (
+            <Navigate to="/" />
+          )} */}
       </Routes>
       
     </div>
     
-    </BrowserRouter>
+     </BrowserRouter>
    
   )
 }

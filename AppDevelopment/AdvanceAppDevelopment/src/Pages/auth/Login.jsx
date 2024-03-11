@@ -10,9 +10,10 @@ import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from "jwt-decode";
 
 
-function Login() {
+const Login = ({ setLoginStatus }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = React.useState(false);
@@ -48,8 +49,14 @@ function Login() {
         }
         const user = await axios.post(`http://127.0.0.1:8081/products/authenticate`, data);
         console.log(user);
-        localStorage.setItem('token', user.data);
-        localStorage.setItem('email', email);
+        // localStorage.setItem('token', user.data);
+        sessionStorage.setItem("token", user.data);
+        console.log(sessionStorage.getItem("token"));
+        sessionStorage.setItem("tokenExpiration", Date.now() + 86400000);
+        setLoginStatus(true);
+        const decode = jwtDecode(user?.data);
+        console.log("Decoded token:", decode);
+
         navigate('/user/home');
     }
     return (
